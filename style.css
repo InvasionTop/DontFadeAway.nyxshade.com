@@ -1,0 +1,77 @@
+/* Fondo fijo */
+body {
+    background-image: url(TrioChicas.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fija el fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+/* Botón de Play/Pause */
+/* Botón de Play/Pause más grande */
+.container {
+    --color: #ffffff;
+    --size: 100px; /* Tamaño aumentado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+    width: var(--size);
+    height: var(--size);
+    min-width: var(--size); /* Mantiene el tamaño mínimo */
+    min-height: var(--size); /* Mantiene el tamaño mínimo */
+}
+.container svg {
+    width: 100%;
+    height: 100%;
+}
+
+.container .play {
+    position: absolute;
+    animation: keyframes-fill .5s;
+}
+
+.container .pause {
+    position: absolute;
+    display: none;
+    animation: keyframes-fill .5s;
+}
+
+/* Cuando se activa */
+.container input:checked ~ .play {
+    display: none;
+}
+
+.container input:checked ~ .pause {
+    display: block;
+}
+
+/* Ocultar checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Animación */
+@keyframes keyframes-fill {
+    0% {
+        transform: rotate(-180deg) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: rotate(-10deg) scale(1.2);
+    }
+}
